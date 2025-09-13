@@ -11,7 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 
 type TabKey = "login" | "signup";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || ""; // e.g., http://localhost:3000
+const API_BASE = https://cosmosbackend.onrender.com; // e.g., http://localhost:3000
 
 console.log("API_BASE:", API_BASE); // Debugging line
 
