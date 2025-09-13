@@ -14,7 +14,7 @@ import OpenAI from "openai";
 
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
-  apiKey: import.meta.env.VITE_OPENROUTER_API_KEY,
+  apiKey: "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",
   dangerouslyAllowBrowser: true,
   defaultHeaders: {
     "HTTP-Referer": "http://localhost:5173",
@@ -181,3 +181,4 @@ function ChatPage() {
 }
 
 export default ChatPage;
+
