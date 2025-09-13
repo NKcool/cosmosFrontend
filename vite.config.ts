@@ -9,7 +9,7 @@ export default defineConfig({
     port: 8080,                 // your Vite port
     proxy: {
       '/api': {
-        target: 'http://localhost:5000', // your Express server
+        target: "https://cosmosbackend.onrender.com", // your Express server
         changeOrigin: true,
         secure: false,
       },

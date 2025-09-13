@@ -13,6 +13,8 @@ type TabKey = "login" | "signup";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || ""; // e.g., http://localhost:3000
 
+console.log("API_BASE:", API_BASE); // Debugging line
+
 const Auth = () => {
   const [tab, setTab] = useState<TabKey>("login");
   const [loginLoading, setLoginLoading] = useState(false);
