@@ -13,7 +13,7 @@ import NavBar from "@/components/NavBar";
 import OpenAI from "openai";
 
 
-console.log("OpenRouter API Key:", import.meta.env.VITE_OPENROUTER_API_KEY); // Debugging line
+
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
   apiKey: import.meta.env.VITE_OPENROUTER_API_KEY,
@@ -124,7 +124,7 @@ function ChatPage() {
       }
     } catch (error) {
       console.error("OpenAI SDK error:", error);
-      setMessages(prev => [...prev, { role: "assistant", content: "Error talking to OpenRouter API." }]);
+      setMessages(prev => [...prev, { role: "assistant", content: `${chatPerson} is offline right now. :)` }]);
     }
 
     setLoading(false);
@@ -144,7 +144,7 @@ function ChatPage() {
           {messages.map((msg, idx) => (
             <div
               key={idx}
-              className={`flex ${msg.role === "user" ? "justify-end userMsg" : "justify-start"}`}
+              className={`flex ${msg.role === "user" ? "justify-end userMsg" : "justify-start assistantMsg"}`}
             >
               <div
                 className={`max-w-[80%] p-3 rounded ${msg.role === "user" ? "bg-blue-800 text-white" : "bg-gray-800 text-white"
@@ -161,7 +161,7 @@ function ChatPage() {
           )}
         </div>
 
-        <div className="mt-4 flex gap-2">
+        <div className="mt-4 flex" id='inputBox'>
           <input
             type="text"
             value={input}
