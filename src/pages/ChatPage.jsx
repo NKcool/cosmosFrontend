@@ -12,12 +12,14 @@ import { MessageCircle } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import OpenAI from "openai";
 
+
+console.log("OpenRouter API Key:", import.meta.env.VITE_OPENROUTER_API_KEY); // Debugging line
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
-  apiKey: "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",
+  apiKey: import.meta.env.VITE_OPENROUTER_API_KEY,
   dangerouslyAllowBrowser: true,
   defaultHeaders: {
-    "HTTP-Referer": "http://localhost:5173",
+    "HTTP-Referer": "https://cosmosbackend.onrender.com",
     "X-Title": "Geeta Chatbot"
   }
 });
@@ -164,7 +166,7 @@ function ChatPage() {
             type="text"
             value={input}
             onChange={e => setInput(e.target.value)}
-            placeholder="Ask something from Geeta..."
+            placeholder={`Ask something from ${chatTitle}...`}
             className="flex-1 p-2 rounded bg-gray-900 text-white"
             disabled={loading}
           />
@@ -181,4 +183,3 @@ function ChatPage() {
 }
 
 export default ChatPage;
-

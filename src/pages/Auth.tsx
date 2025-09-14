@@ -15,7 +15,6 @@ const API_BASE = "https://cosmosbackend.onrender.com"; // e.g., http://localhost
 
 console.log("API_BASE:", API_BASE); // Debugging line
 
-
 const Auth = () => {
   const [tab, setTab] = useState<TabKey>("login");
   const [loginLoading, setLoginLoading] = useState(false);
